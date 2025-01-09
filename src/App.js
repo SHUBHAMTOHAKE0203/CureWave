@@ -30,7 +30,7 @@ import SchedulerButtontwo from './Components/Doctor02';
 import SchedulerButtonthree from './Components/Doctor03';
 import SchedulerButtonfour from './Components/Doctor04';
 import SchedulerButtonfive from './Components/Doctor05';
-
+import NutritionInfo from './Components/NutritionInfo';
 function App() {
   return (
     <Router>
@@ -60,7 +60,7 @@ function App() {
           <Route path="/donate-us" element={<DonateUs/>}/>
           <Route path ="/upload-file" element={<UploadFile/>}/>
           <Route path="/appointment" element={<AppointmentCards/>}/>
-         
+          <Route path="/nutri-info" element={<NutritionInfo/>}/>
         </Routes>
         <Chatbot/>
     

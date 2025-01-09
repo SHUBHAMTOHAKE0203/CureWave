@@ -949,10 +949,12 @@ export default function FrontLayout() {
           <OurServices />
           <SpecializedCare />
           <Toaster position="top-center" richColors />
-        </div>
-        <div>
+          <div className='p-6'>
+        
          <RecipeServiceCard/>
         </div>
+        </div>
+        
         <div>
         <Smile/>
         </div>
