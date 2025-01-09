@@ -95,33 +95,33 @@ const PeriodPredictor = () => {
       )}&location=${encodeURIComponent(eventDetails.location)}`;
 
       const message = `
-🌟 *Welcome to CureWave!* 🌟
+🌟 Welcome to CureWave! 🌟
 
-🩸 *Next Period Date*: ${prediction.nextCycleDate}
-⏳ *Fertile Window*: ${prediction.fertileWindowStart} to ${prediction.fertileWindowEnd}
+🩸 Next Period Date: ${prediction.nextCycleDate}
+⏳ Fertile Window: ${prediction.fertileWindowStart} to ${prediction.fertileWindowEnd}
 
-📅 *Add to Calendar*: Click the link below to add your next period to your calendar:  
+📅 Add to Calendar: Click the link below to add your next period to your calendar:  
 ${calendarLink}
 
-💡 *Recommendations for Each Phase*:
+💡 Recommendations for Each Phase:
 
-📍 *Menstruation Phase*:  
+📍 Menstruation Phase:  
   ✅ Stay hydrated, eat iron-rich foods like spinach, and take short walks to reduce cramps.  
   ❌ Avoid excessive caffeine and skipping meals.
 
-📍 *Fertile Window*:  
+📍 Fertile Window:  
   ✅ Eat foods rich in folic acid (like broccoli and lentils) and engage in light exercise.  
   ❌ Avoid stress and consuming junk food.
 
-📍 *Luteal Phase*:  
+📍 Luteal Phase:  
   ✅ Include magnesium-rich foods (like nuts) and practice relaxation techniques.  
   ❌ Avoid too much salt and strenuous activities.
 
-📍 *Follicular Phase*:  
+📍 Follicular Phase:  
   ✅ Consume protein-rich foods, Omega-3 fatty acids, and engage in moderate exercise.  
   ❌ Avoid skipping meals and processed foods.
 
-📍 *Ovulation*:  
+📍 Ovulation:  
   ✅ Stay active, include zinc-rich foods, and maintain hydration.  
   ❌ Avoid overexertion and excessive sugar.`;
 

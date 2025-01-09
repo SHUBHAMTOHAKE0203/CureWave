@@ -12,7 +12,7 @@ import HealthNewsCards from './Components/HealthNews';
 import NearByPharmacy from './Components/NearByPharmacy'; 
 import AirQualityMap from './Components/Allergy';
 import { Bmi } from './Components/Bmi';
-import DiseasePredictor from './Components/DiseasePredictor';
+
 import DrugSearch from './Components/DrugSearch';
 import Workout from './Components/ExerciseList';
 import FoodSearch from './Components/FoodSearch';
@@ -38,7 +38,7 @@ function App() {
           <Route path="/news" element={<HealthNewsCards />} />
           <Route path="/nearby-pharmacy" element={<NearByPharmacy />} /> 
           <Route path="/breathsafe" element={<AirQualityMap/>}/>
-          <Route path="/disease-predictor" element={<DiseasePredictor/>}/>
+          
           <Route path="/drug-info" element={<DrugSearch/>}/>
           <Route path="/workout" element={<Workout/>}/>
           <Route path="/nutrition" element={<FoodSearch/>}/>
@@ -52,9 +52,10 @@ function App() {
           <Route path="/donate-us" element={<DonateUs/>}/>
           <Route path ="/upload-file" element={<UploadFile/>}/>
           <Route path="/appointment" element={<AppointmentCards/>}/>
+         
         </Routes>
         <Chatbot/>
-     
+    
       </div>
     </Router>
   );

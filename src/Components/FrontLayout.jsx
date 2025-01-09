@@ -98,7 +98,7 @@ function Navigation({ isScrolled }) {
     { name: "About Us", href: "/about" },
     { name: "Services", href: "/services" },
     { name: "News", href: "/news" },
-    { name: "Contact", href: "/contact" },
+    { name: "Contact", href: "/contact-us" },
   ];
 
   return (
