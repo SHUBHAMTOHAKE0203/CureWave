@@ -23,7 +23,12 @@ import { UserInfo } from './Components/UserInfo';
 import { Signout } from './Components/Signout';
 import HealthTipsCards from './Components/Tips';
 import Chatbot from './Components/CureMate';
+<<<<<<< HEAD
 import DonateUs from './Components/DonateUs';
+=======
+import UploadFile from './Components/UploadFile';
+
+>>>>>>> 2f250864ea8c7a5898a77307f485fb969716aee9
 
 function App() {
   return (
@@ -46,8 +51,12 @@ function App() {
           <Route path="/user-info" element={<UserInfo />} />
           <Route path="/signup" element={<Signout/>}/>
           <Route path="/health-tips" element={<HealthTipsCards/>}/>
+<<<<<<< HEAD
           <Route path="/bmi-calculator" element={<Bmi/>}/>
           <Route path="/donate-us" element={<DonateUs/>}/>
+=======
+          <Route path ="/upload-file" element={<UploadFile/>}/>
+>>>>>>> 2f250864ea8c7a5898a77307f485fb969716aee9
         </Routes>
         <Chatbot/>
      
