@@ -1,60 +1,82 @@
+"use client";
+
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet";
-import { Wind, AlertTriangle, Heart, Bell } from "lucide-react";
+import { Wind, AlertTriangle, Heart, Bell, Loader2, Thermometer, Droplets, Sun } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import "leaflet/dist/leaflet.css";
 
-// Air Quality Icon (remains unchanged)
+// Air Quality Icon
 const airQualityIcon = new L.DivIcon({
   className: "custom-div-icon",
-  html: '<div style="background-color: #4CAF50; padding: 8px; border-radius: 50%;"><svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M9.7 17l3.3-3.3V6.7L9.7 10l-3.3-3.3v7l3.3 3.3z M16.3 17l3.3-3.3v-7L16.3 10 13 6.7v7l3.3 3.3z"/></svg></div>',
+  html: '<div style="background-color: #60A5FA; padding: 8px; border-radius: 50%;"><svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M9.7 17l3.3-3.3V6.7L9.7 10l-3.3-3.3v7l3.3 3.3z M16.3 17l3.3-3.3v-7L16.3 10 13 6.7v7l3.3 3.3z"/></svg></div>',
   iconSize: [40, 40],
   iconAnchor: [20, 40],
   popupAnchor: [0, -40],
 });
 
-// Health Tip Component (remains unchanged)
-const HealthTip = ({ icon: Icon, title, description }) => (
-  <div className="bg-white bg-opacity-20 backdrop-blur-sm p-4 rounded-lg transform transition-all duration-500 hover:scale-105 hover:bg-opacity-30">
-    <Icon className="text-white mb-2 h-6 w-6" />
-    <h3 className="text-white font-semibold mb-1">{title}</h3>
-    <p className="text-white text-sm opacity-90">{description}</p>
-  </div>
+// Health Tip Component with modern animations
+const HealthTip = ({ icon: Icon, title, description, index }) => (
+  <motion.div
+    className="bg-white rounded-3xl shadow-lg overflow-hidden"
+    initial={{ opacity: 0, y: 50 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.5, delay: index * 0.1 }}
+    whileHover={{ scale: 1.03, transition: { duration: 0.2 } }}
+  >
+    <motion.div
+      className="p-6"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5, delay: index * 0.1 + 0.2 }}
+    >
+      <motion.div
+        className="bg-blue-400 rounded-2xl p-3 w-fit mb-4"
+        whileHover={{ rotate: 360, scale: 1.1 }}
+        transition={{ duration: 0.5 }}
+      >
+        <Icon className="text-white h-6 w-6" />
+      </motion.div>
+      <motion.h3
+        className="text-gray-900 font-semibold text-lg mb-2"
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.5, delay: index * 0.1 + 0.3 }}
+      >
+        {title}
+      </motion.h3>
+      <motion.p
+        className="text-gray-600 text-sm leading-relaxed"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: index * 0.1 + 0.4 }}
+      >
+        {description}
+      </motion.p>
+    </motion.div>
+  </motion.div>
 );
 
-// Function to categorize AQI and return the corresponding color and label
+// AQI Category function
 const getAQICategory = (aqi) => {
-  if (aqi <= 50) {
-    return { label: "Good", color: "bg-green-500" };
-  } else if (aqi <= 100) {
-    return { label: "Moderate", color: "bg-yellow-500" };
-  } else if (aqi <= 150) {
-    return { label: "Unhealthy for Sensitive Groups", color: "bg-orange-500" };
-  } else if (aqi <= 200) {
-    return { label: "Unhealthy", color: "bg-red-500" };
-  } else if (aqi <= 300) {
-    return { label: "Very Unhealthy", color: "bg-purple-500" };
-  } else {
-    return { label: "Hazardous", color: "bg-pink-500" };
-  }
+  if (aqi <= 50) return { label: "Good", color: "bg-green-500" };
+  else if (aqi <= 100) return { label: "Moderate", color: "bg-yellow-500" };
+  else if (aqi <= 150) return { label: "Unhealthy for Sensitive Groups", color: "bg-orange-500" };
+  else if (aqi <= 200) return { label: "Unhealthy", color: "bg-red-500" };
+  else if (aqi <= 300) return { label: "Very Unhealthy", color: "bg-purple-500" };
+  else return { label: "Hazardous", color: "bg-pink-500" };
 };
 
-// Function to provide allergy recommendation based on AQI
+// Allergy recommendation function
 const getAllergyRecommendation = (aqi) => {
-  if (aqi <= 50) {
-    return "It is safe for allergy patients to go outside.";
-  } else if (aqi <= 100) {
-    return "It is generally safe, but allergy patients should be cautious.";
-  } else if (aqi <= 150) {
-    return "Allergy patients should limit outdoor activities.";
-  } else if (aqi <= 200) {
-    return "Allergy patients should avoid outdoor activities.";
-  } else if (aqi <= 300) {
-    return "Allergy patients should stay indoors.";
-  } else {
-    return "It is dangerous for everyone, including allergy patients. Stay indoors.";
-  }
+  if (aqi <= 50) return "It is safe for allergy patients to go outside.";
+  else if (aqi <= 100) return "It is generally safe, but allergy patients should be cautious.";
+  else if (aqi <= 150) return "Allergy patients should limit outdoor activities.";
+  else if (aqi <= 200) return "Allergy patients should avoid outdoor activities.";
+  else if (aqi <= 300) return "Allergy patients should stay indoors.";
+  else return "It is dangerous for everyone, including allergy patients. Stay indoors.";
 };
 
 const AirQualityMap = () => {
@@ -67,30 +89,20 @@ const AirQualityMap = () => {
 
   useEffect(() => {
     const fetchLocation = async () => {
-      console.log("Attempting to fetch geolocation...");
-
-      // Using geolocation API to fetch location
       navigator.geolocation.getCurrentPosition(
         async (position) => {
           const { latitude, longitude } = position.coords;
-          console.log("Geolocation successful: ", latitude, longitude); // Debugging the location
-
           setLocation({ lat: latitude, lon: longitude });
-
           try {
-            // Fetching city from OpenStreetMap reverse geocoding API
             const res = await axios.get(
               `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`
             );
-            console.log("Location data from reverse geocoding:", res.data); // Debugging the location response
             setCity(res.data.address.city || res.data.address.state || "Unknown Location");
           } catch (err) {
-            console.error("Error fetching city from geocoding:", err);
             setCity("Unknown Location");
           }
         },
         (error) => {
-          console.error("Geolocation error:", error); // Log error details
           setError("Failed to fetch location");
         }
       );
@@ -121,136 +133,188 @@ const AirQualityMap = () => {
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center h-screen bg-gradient-to-b from-blue-400 to-green-600">
-        <div className="animate-spin rounded-full h-32 w-32 border-t-4 border-white"></div>
+      <div className="flex flex-col items-center justify-center h-screen bg-gradient-to-b from-blue-400 to-white">
+        <Loader2 className="h-16 w-16 text-white animate-spin mb-4" />
+        <p className="text-white text-lg">Loading air quality data...</p>
       </div>
     );
   }
 
   if (error) {
     return (
-      <div className="min-h-screen bg-gradient-to-b from-blue-400 to-green-600 flex items-center justify-center">
-        <div className="text-center text-white p-8 bg-red-500 bg-opacity-75 rounded-lg">
-          <h1 className="text-2xl font-bold mb-4">Error</h1>
-          <p>{error}</p>
+      <div className="min-h-screen bg-gradient-to-b from-blue-400 to-white flex items-center justify-center">
+        <div className="text-center p-8 bg-white/80 backdrop-blur-xl rounded-3xl shadow-xl">
+          <AlertTriangle className="h-16 w-16 text-red-500 mx-auto mb-4" />
+          <h1 className="text-2xl font-bold mb-4 text-gray-900">Error</h1>
+          <p className="text-gray-700">{error}</p>
         </div>
       </div>
     );
   }
 
-  const backgroundStyle = {
-    backgroundImage: `url('/air.jpg')`,
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    backgroundRepeat: "no-repeat",
-  };
-
   return (
-    <div className="min-h-screen relative">
-      <div
-        className="absolute inset-0 filter blur-sm"
-        style={backgroundStyle}
-      ></div>
-
-      <div className="relative z-10 min-h-screen bg-black bg-opacity-40">
-        <h1 className="text-4xl font-bold text-center py-6 text-white animate-fade-in">
+    <div className={`min-h-screen relative bg-gradient-to-b from-blue-400 to-white ${showMap ? "backdrop-blur-md" : ""}`}>
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <motion.h1
+          className="text-4xl md:text-5xl font-bold text-center mb-8 text-white"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+        >
           Air Quality in {city || "Loading..."}
-        </h1>
+        </motion.h1>
 
-        {!showMap ? (
-          <div className="flex flex-col items-center justify-center space-y-8 h-[80vh]">
-            {/* Animated button */}
-            <button
-              onClick={() => setShowMap(true)}
-              className="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white bg-gradient-to-r from-green-400 to-blue-500 rounded-full overflow-hidden transition-all duration-300 transform hover:scale-105 hover:shadow-xl animate-bounce"
+        <AnimatePresence mode="wait">
+          {!showMap ? (
+            <motion.div
+              className="space-y-12"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
             >
-              <span className="absolute w-0 h-0 transition-all duration-500 ease-out bg-white rounded-full group-hover:w-56 group-hover:h-56 opacity-10"></span>
-              <Wind className="mr-2 h-6 w-6 animate-pulse" />
-              <span>View Air Quality Map</span>
-            </button>
-
-            {/* Info text with fade-in animation */}
-            <div className="max-w-4xl mx-auto px-4 space-y-6 animate-fade-in">
-              <p className="text-white text-center text-xl mb-8 animate-fade-in">
-                Monitor real-time air quality data to make informed decisions
-                about outdoor activities
-              </p>
-
-              {/* Health tips grid */}
-              <div className="grid md:grid-cols-3 gap-4 mt-8">
-                <HealthTip
-                  icon={AlertTriangle}
-                  title="Allergy Patients"
-                  description="Check air quality levels before outdoor activities. High pollution can trigger allergic reactions and respiratory issues."
-                />
-                <HealthTip
-                  icon={Heart}
-                  title="Respiratory Conditions"
-                  description="Monitor PM2.5 and PM10 levels to manage asthma and other respiratory conditions effectively."
-                />
-                <HealthTip
-                  icon={Bell}
-                  title="Preventive Measures"
-                  description="Get alerts for poor air quality days to plan indoor activities and take necessary precautions."
-                />
-              </div>
-            </div>
-          </div>
-        ) : (
-          <div className="flex h-screen">
-            <div className="w-1/4 bg-black bg-opacity-60 text-white p-4 overflow-auto">
-              {/* Allergy Recommendation */}
-              <div className="p-4 bg-blue-100 text-blue-700 rounded mb-4">
-                <p className="font-semibold">Allergy Patient Recommendation:</p>
-                <p>{getAllergyRecommendation(airQualityData.aqi)}</p>
-              </div>
-
-              {/* Air Quality Data */}
-              <div className="space-y-4">
-                <div
-                  className={`p-4 rounded-lg ${getAQICategory(airQualityData.aqi).color} text-black`}
-                >
-                  <p className="font-bold">AQI: {airQualityData.aqi}</p>
-                  <p>{getAQICategory(airQualityData.aqi).label}</p>
-                </div>
-                <div className="grid grid-cols-2 gap-4 text-black">
-                  <div className="bg-gray-100 p-2 rounded">
-                    <p className="font-semibold">PM2.5</p>
-                    <p>{airQualityData.pm25} µg/m³</p>
-                  </div>
-                  <div className="bg-gray-100 p-2 rounded">
-                    <p className="font-semibold">PM10</p>
-                    <p>{airQualityData.pm10} µg/m³</p>
-                  </div>
-                  <div className="bg-gray-100 p-2 rounded">
-                    <p className="font-semibold">O₃</p>
-                    <p>{airQualityData.o3} ppb</p>
-                  </div>
-                  <div className="bg-gray-100 p-2 rounded">
-                    <p className="font-semibold">NO₂</p>
-                    <p>{airQualityData.no2} ppb</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="w-3/4">
-              <MapContainer
-                center={[location.lat, location.lon]}
-                zoom={10}
-                scrollWheelZoom={true}
-                className="h-full w-full rounded-xl shadow-2xl"
+              <motion.button
+                onClick={() => setShowMap(true)}
+                className="mx-auto block px-6 py-3 text-lg font-semibold text-blue-400 bg-white rounded-full hover:bg-blue-50 transition-all duration-300 shadow-lg hover:shadow-xl"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
-                <TileLayer
-                  url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                  attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                />
-                <Marker position={[location.lat, location.lon]} icon={airQualityIcon}>
-                  
-                </Marker>
-              </MapContainer>
-            </div>
-          </div>
-        )}
+                <Wind className="inline-block mr-2 h-5 w-5" />
+                <span>View Air Quality Map</span>
+              </motion.button>
+
+              <div className="max-w-6xl mx-auto">
+                <motion.p
+                  className="text-white text-center text-lg md:text-xl mb-12"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2 }}
+                >
+                  Monitor real-time air quality data to make informed decisions
+                  about outdoor activities and protect your health.
+                </motion.p>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <HealthTip
+                    icon={AlertTriangle}
+                    title="Allergy Patients"
+                    description="Check air quality levels before outdoor activities. High pollution can trigger allergic reactions and respiratory issues."
+                    index={0}
+                  />
+                  <HealthTip
+                    icon={Heart}
+                    title="Respiratory Conditions"
+                    description="Monitor PM2.5 and PM10 levels to manage asthma and other respiratory conditions effectively."
+                    index={1}
+                  />
+                  <HealthTip
+                    icon={Bell}
+                    title="Preventive Measures"
+                    description="Get alerts for poor air quality days to plan indoor activities and take necessary precautions."
+                    index={2}
+                  />
+                </div>
+              </div>
+            </motion.div>
+          ) : (
+            <motion.div
+              className="bg-white rounded-3xl overflow-hidden shadow-xl"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              <div className="flex flex-col lg:flex-row">
+                <div className="w-full lg:w-1/3 bg-blue-50 p-6 overflow-auto">
+                  <motion.div
+                    className="mb-6 bg-blue-100 p-4 rounded-2xl"
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.2 }}
+                  >
+                    <p className="font-semibold mb-2 text-blue-900">Allergy Patient Recommendation:</p>
+                    <p className="text-blue-800">{getAllergyRecommendation(airQualityData.aqi)}</p>
+                  </motion.div>
+
+                  <div className="space-y-4">
+                    <motion.div
+                      className={`p-4 rounded-2xl ${getAQICategory(airQualityData.aqi).color}`}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.3 }}
+                    >
+                      <p className="font-bold text-lg text-white">AQI: {airQualityData.aqi}</p>
+                      <p className="text-white/90">{getAQICategory(airQualityData.aqi).label}</p>
+                    </motion.div>
+
+                    <div className="grid grid-cols-2 gap-4">
+                      {[
+                        { label: "PM2.5", value: airQualityData.pm25, unit: "µg/m³", icon: Thermometer },
+                        { label: "PM10", value: airQualityData.pm10, unit: "µg/m³", icon: Droplets },
+                        { label: "O₃", value: airQualityData.o3, unit: "ppb", icon: Sun },
+                        { label: "NO₂", value: airQualityData.no2, unit: "ppb", icon: Wind },
+                      ].map((item, index) => (
+                        <motion.div
+                          key={item.label}
+                          className="bg-white p-4 rounded-2xl shadow-md"
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: 0.4 + index * 0.1 }}
+                          whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
+                        >
+                          <item.icon className="h-6 w-6 text-blue-500 mb-2" />
+                          <p className="font-semibold text-blue-900">{item.label}</p>
+                          <p className="text-2xl font-bold text-blue-600">
+                            {item.value}
+                            <span className="text-sm font-normal text-blue-400">{item.unit}</span>
+                          </p>
+                        </motion.div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+                <div className="w-full lg:w-2/3 h-[400px] lg:h-auto relative">
+                  <div
+                    className={`absolute inset-0 z-0 ${
+                      showMap ? "blur-md brightness-50" : ""
+                    }`}
+                    style={{
+                      backgroundImage: "url('air.jpg')",
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
+                    }}
+                  ></div>
+                  <div className="relative z-10 h-full bg-black/10">
+                    <MapContainer
+                      center={[location.lat, location.lon]}
+                      zoom={10}
+                      scrollWheelZoom={false}
+                      className="h-full w-full"
+                    >
+                      <TileLayer
+                        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                      />
+                      <Marker position={[location.lat, location.lon]} icon={airQualityIcon}>
+                        <Popup>
+                          Current Location<br />AQI: {airQualityData.aqi}
+                        </Popup>
+                      </Marker>
+                    </MapContainer>
+                  </div>
+                </div>
+              </div>
+              <div className="p-4 bg-blue-50 text-center">
+                <motion.button
+                  onClick={() => setShowMap(false)}
+                  className="px-4 py-2 bg-blue-400 text-white rounded-lg hover:bg-blue-500"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  Close Map
+                </motion.button>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </div>
   );
