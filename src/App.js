@@ -23,6 +23,7 @@ import { UserInfo } from './Components/UserInfo';
 import { Signout } from './Components/Signout';
 import HealthTipsCards from './Components/Tips';
 import Chatbot from './Components/CureMate';
+import UploadFile from './Components/UploadFile';
 
 
 function App() {
@@ -46,6 +47,7 @@ function App() {
           <Route path="/user-info" element={<UserInfo />} />
           <Route path="/signup" element={<Signout/>}/>
           <Route path="/health-tips" element={<HealthTipsCards/>}/>
+          <Route path ="/upload-file" element={<UploadFile/>}/>
         </Routes>
         <Chatbot/>
       </div>
