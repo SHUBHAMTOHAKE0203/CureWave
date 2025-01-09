@@ -26,6 +26,7 @@ import Chatbot from './Components/CureMate';
 import DonateUs from './Components/DonateUs';
 import UploadFile from './Components/UploadFile';
 import AppointmentCards from './Components/Appointments';
+import ContactUs from './Components/ContactUs';
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
           <Route path="/services" element={<Services />} />
           <Route path="/about" element={<AboutUs />} />
           <Route path="/news" element={<HealthNewsCards />} />
+          <Route path="/contact" element={<ContactUs />} />
           <Route path="/nearby-pharmacy" element={<NearByPharmacy />} /> 
           <Route path="/breathsafe" element={<AirQualityMap/>}/>
           
