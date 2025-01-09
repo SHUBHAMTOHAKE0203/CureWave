@@ -24,6 +24,7 @@ import { Signout } from './Components/Signout';
 import HealthTipsCards from './Components/Tips';
 import Chatbot from './Components/CureMate';
 
+
 function App() {
   return (
     <Router>
