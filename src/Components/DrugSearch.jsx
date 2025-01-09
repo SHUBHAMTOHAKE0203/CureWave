@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Pill, Stethoscope, AlertTriangle, Building2, Search, Loader2 } from 'lucide-react'
-
+import Navigation from './Navigation'
 // Custom styled components
 const Card = ({ children, className = '', ...props }) => (
   <div className={`bg-white/90 rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300 ${className}`} {...props}>
@@ -136,7 +136,9 @@ export default function DrugInfoSearch() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-sky-50 to-blue-100 p-4 md:p-8">
+    <div>
+    <Navigation/>
+    <div className="min-h-screen bg-gradient-to-br from-sky-50 to-blue-100  p-4 md:p-8">
       <div className="mx-auto max-w-4xl space-y-8">
         {/* Hero Section */}
         <motion.div 
@@ -145,7 +147,7 @@ export default function DrugInfoSearch() {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="text-center space-y-4"
         >
-          <div className="inline-flex p-4 rounded-full bg-blue-500/10">
+          <div className="inline-flex pt-20 rounded-full ">
             <Pill className="w-10 h-10 text-blue-500" />
           </div>
           <h1 className="text-5xl font-bold tracking-tight bg-gradient-to-r from-gray-900 to-gray-600 bg-clip-text text-transparent">
@@ -372,6 +374,7 @@ export default function DrugInfoSearch() {
           )}
         </div>
       </div>
+    </div>
     </div>
   )
 }

@@ -3,7 +3,7 @@ import { MapContainer, TileLayer, Marker, Popup, useMap, Circle, ZoomControl } f
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { toast } from "sonner";
-
+import Navigation from './Navigation';
 // Fix for Leaflet default marker icons
 delete L.Icon.Default.prototype._getIconUrl;
 L.Icon.Default.mergeOptions({
@@ -486,6 +486,9 @@ const fetchNearbyPharmacies = async (lat, lng) => {
   };
 
   return (
+    <div>
+    <Navigation/>
+    <div className='pt-24'>
     <div className={styles.container}>
       <TopLocationBar address={location?.address || ''} postalCode={location?.postalCode} />
       <div className={styles.gridContainer}>
@@ -687,6 +690,8 @@ const fetchNearbyPharmacies = async (lat, lng) => {
         </div>
       </div>
       <UserLocation location={location} />
+    </div>
+    </div>
     </div>
   );
 }

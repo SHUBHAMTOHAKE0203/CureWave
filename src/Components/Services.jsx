@@ -2,7 +2,7 @@ import React from 'react'
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import { Link } from 'react-router-dom';
-
+import Navigation from './Navigation';
 
 
 const services = [
@@ -54,7 +54,7 @@ const services = [
     title: "Pharmacy Finder",
     description: "Specialized care for musculoskeletal system, including bones, joints, and muscles.",
     image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b",
-    path: "/pharmacy-finder"
+    path: "/nearby-pharmacy"
   }
 ]
 
@@ -66,6 +66,8 @@ function ServiceCard({ service, index }) {
   const y = useSpring(useTransform(scrollYProgress, [0, 1], [100, 0]), springConfig)
 
   return (
+    <div>
+    <Navigation/>
     <motion.div
       initial={{ opacity: 0, y: 100 }}
       whileInView={{ 
@@ -161,6 +163,7 @@ function ServiceCard({ service, index }) {
         />
       </motion.div>
     </motion.div>
+    </div>
   )
 }
 

@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import { Activity, Heart, Brain, Dumbbell, Timer, ArrowRight, ChevronDown, Scale, Sparkles, Flame, Trophy, Target, Clock } from 'lucide-react'
 import { clsx } from 'clsx'
 import { twMerge } from 'tailwind-merge'
-
+import Navigation from "./Navigation"
 // Utility function
 function cn(...inputs) {
   return twMerge(clsx(inputs))
@@ -121,7 +121,9 @@ export default function ExerciseList() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-50">
+    <div>
+    <Navigation/>
+    <div className="min-h-screen pt-14 bg-gradient-to-br from-blue-50 via-white to-blue-50">
       <div className="mx-auto max-w-7xl px-4 py-12">
         <motion.header
           initial={{ opacity: 0, y: 20 }}
@@ -306,6 +308,7 @@ export default function ExerciseList() {
           </motion.div>
         )}
       </div>
+    </div>
     </div>
   )
 }

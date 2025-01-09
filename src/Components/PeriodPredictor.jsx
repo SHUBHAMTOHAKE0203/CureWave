@@ -125,7 +125,7 @@ ${calendarLink}
   ✅ Stay active, include zinc-rich foods, and maintain hydration.  
   ❌ Avoid overexertion and excessive sugar.`;
 
-      const url = `http://api.textmebot.com/send.php?recipient=${phoneNumber}&apikey=XMBgL2bbp58a&text=${encodeURIComponent(
+      const url = `http://api.textmebot.com/send.php?recipient=${phoneNumber}&apikey=L2re7ZLwcGMu&text=${encodeURIComponent(
         message
       )}`;
 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { motion } from 'framer-motion';
-
+import Navigation from './Navigation';
 const HealthNewsCards = () => {
   const [news, setNews] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -61,7 +61,10 @@ const HealthNewsCards = () => {
   };
 
   return (
+    <div>
+    <Navigation/>
     <div className="w-full bg-gray-50 py-16 px-4 sm:px-6 lg:px-8">
+    
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col items-center text-center mb-16">
           <span className="inline-flex items-center rounded-full bg-blue-50 px-3 py-1 text-sm font-medium text-blue-700 mb-6">
@@ -178,6 +181,7 @@ const HealthNewsCards = () => {
           </div>
         )}
       </div>
+    </div>
     </div>
   );
 };

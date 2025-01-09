@@ -7,7 +7,7 @@ import L from "leaflet";
 import { Wind, AlertTriangle, Heart, Bell, Loader2, Thermometer, Droplets, Sun } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import "leaflet/dist/leaflet.css";
-
+import Navigation from "./Navigation";
 // Air Quality Icon
 const airQualityIcon = new L.DivIcon({
   className: "custom-div-icon",
@@ -153,7 +153,9 @@ const AirQualityMap = () => {
   }
 
   return (
-    <div className={`min-h-screen relative bg-gradient-to-b from-blue-400 to-white ${showMap ? "backdrop-blur-md" : ""}`}>
+    <div>
+    <Navigation/>
+    <div className={`min-h-screen relative pt-14 bg-gradient-to-b from-blue-400 to-white ${showMap ? "backdrop-blur-md" : ""}`}>
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <motion.h1
           className="text-4xl md:text-5xl font-bold text-center mb-8 text-white"
@@ -316,6 +318,7 @@ const AirQualityMap = () => {
           )}
         </AnimatePresence>
       </div>
+    </div>
     </div>
   );
 };

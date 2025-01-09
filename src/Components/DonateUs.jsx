@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Heart, Users, DollarSign, HelpingHand } from 'lucide-react';
-
+import Navigation from './Navigation';
 const ImpactCard = ({ icon: Icon, title, value }) => (
   <motion.div
     className="bg-white p-6 rounded-xl shadow-lg"
@@ -36,6 +36,9 @@ const ImpactVisualizer = () => {
   const [donationAmount, setDonationAmount] = useState(50);
 
   return (
+    <div>
+    <Navigation/>
+    
     <div className="bg-white rounded-xl shadow-lg p-8 mb-16">
       <h3 className="text-2xl font-bold text-gray-900 mb-6">Visualize Your Impact</h3>
       <div className="mb-6">
@@ -82,12 +85,13 @@ const ImpactVisualizer = () => {
         ))}
       </div>
     </div>
+    </div>
   );
 };
 
 const DonateUs = () => {
   return (
-    <div className="bg-gradient-to-b from-blue-50 to-white py-20">
+    <div className="bg-gradient-to-b from-blue-50 pt-48 to-white py-20">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
