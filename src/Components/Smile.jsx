@@ -124,7 +124,7 @@ const SocialShareButton = ({ icon: Icon, label, color, hashtags }) => (
 
 export default function Smile() {
   return (
-    <div className="min-h-screen py-16 px-4 bg-white">
+    <div className="min-h-screen p-20 bg-white">
       <MacWindowFrame>
         <div className="bg-gradient-to-br from-slate-50 to-blue-50/30 p-10 min-h-[800px] relative">
           <div className="absolute bottom-10 left-10 flex items-end space-x-6">
@@ -155,7 +155,7 @@ export default function Smile() {
 
                     <blockquote className="border-l-4 border-gray-200 pl-6 italic my-8">
                       <p className="text-xl">"Sometimes your joy is the source of your smile, but sometimes your smile can be the source of your joy."</p>
-                      <footer className="text-base text-gray-600 mt-3">- Thich Nhat Hanh</footer>
+                      <footer className="text-base text-gray-600 mt-3">- Sherin</footer>
                     </blockquote>
 
                     <p className="font-medium text-gray-800 text-lg mt-8">
@@ -171,11 +171,11 @@ export default function Smile() {
 
                   <div className="grid grid-cols-2 gap-6 mt-10">
                     <StoryCard
-                      title="Sarah's Story"
+                      title="Shubham's Story"
                       content="'During my chemo sessions, I made it a point to smile at everyone I met. It wasn't just about staying positive - it was about creating light in the darkness.'"
                     />
                     <StoryCard
-                      title="Mike's Journey"
+                      title="Aarya's Journey"
                       content="'Depression tried to steal my smile, but every morning I choose to smile back at life. It's my way of saying: I'm still here, still fighting.'"
                     />
                   </div>
@@ -239,35 +239,36 @@ export default function Smile() {
               <div className="w-[320px] relative">
                 <div className="sticky top-8 grid grid-cols-2 gap-5 auto-rows-min">
                   <SmilingPhoto
-                    src="https://images.unsplash.com/photo-1499557354967-2b2d8910bcca"
-                    caption="Maria, beating cancer with a smile"
+                    src="https://images.unsplash.com/photo-1706943262459-3ef6ce03305c?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    caption="Suhani, beating cancer with a smile"
                     size="large"
                     className="col-span-2"
                   />
                   <SmilingPhoto
-                    src="https://images.unsplash.com/photo-1537511446984-935f663eb1f4"
-                    caption="John, 2 years after recovery"
+                    src="https://plus.unsplash.com/premium_photo-1682089869602-2ec199cc501a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    caption="Suresh, 2 years after recovery"
                     size="small"
                   />
                   <SmilingPhoto
-                    src="https://images.unsplash.com/photo-1605108040941-7c762d5ed4e4"
-                    caption="Emma, finding strength in community"
+                    src="https://images.unsplash.com/photo-1734937404197-bdaa7ea0fb0c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    
+                    caption="Sunidhi, finding strength in community"
                     size="small"
                   />
                   <SmilingPhoto
-                    src="https://images.unsplash.com/photo-1545167622-3a6ac756afa4"
-                    caption="Tom, spreading joy every day"
+                    src="https://images.unsplash.com/photo-1534339480783-6816b68be29c?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    caption="Ram, spreading joy every day"
                     size="large"
                     className="col-span-2"
                   />
                   <SmilingPhoto
-                    src="https://images.unsplash.com/photo-1528892952291-009c663ce843"
-                    caption="Lisa, embracing each moment"
+                    src="https://images.unsplash.com/photo-1734764627105-b5ff03f02b2d?q=80&w=1909&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    caption="Radhika, embracing each moment"
                     size="normal"
                   />
                   <SmilingPhoto
-                    src="https://images.unsplash.com/photo-1573007974656-b958089e9f7b"
-                    caption="David, finding peace"
+                    src="https://plus.unsplash.com/premium_photo-1723568666044-1b066e26b1fb?q=80&w=1921&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    caption="Sharmila, finding peace"
                     size="normal"
                   />
 

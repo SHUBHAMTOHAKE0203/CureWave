@@ -471,7 +471,7 @@ function AboutUs() {
         </div>
 
         <motion.div
-          className="mt-24 md:mt-32 grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 items-center"
+          className="mt-24 md:mt-32 p-9 grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 items-center"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
@@ -700,7 +700,7 @@ function ServiceItem({ title, description, image, link, large }) {
   
     return (
       <motion.div
-        className="min-h-screen bg-blue-50/50 py-20 md:py-32 overflow-hidden"
+        className="min-h-screen bg-blue-50/50 py-10 md:py-16 overflow-hidden"
         style={{ scale }}
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -949,17 +949,18 @@ export default function FrontLayout() {
           <OurServices />
           <SpecializedCare />
           <Toaster position="top-center" richColors />
-          <div className='p-6'>
+          <div className='mt-[-160px]'>
         
          <RecipeServiceCard/>
         </div>
         </div>
         
-        <div>
-        <Smile/>
-        </div>
-        <div>
+        <div className='mt-12'>
         <FAQ/>
+        </div>
+        
+        <div >
+        <Smile/>
         </div>
         <div>
         <Testimonials/>

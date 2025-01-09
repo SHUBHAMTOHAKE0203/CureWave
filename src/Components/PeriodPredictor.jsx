@@ -209,27 +209,8 @@ ${calendarLink}
 
 📍 *Ovulation*:  
   ✅ Stay active, include zinc-rich foods, and maintain hydration.  
-
-  ❌ Avoid overexertion and excessive sugar.`;
-
-  ❌ Avoid overexertion and excessive sugar.`;
-
-      const url = `http://api.textmebot.com/send.php?recipient=${phoneNumber}&apikey=L2re7ZLwcGMu&text=${encodeURIComponent(
-        message
-      )}`;
-
-      fetch(url)
-        .then((response) => response.json())
-        .then((data) => {
-          console.log("Message sent:", data);
-          alert("Prediction message sent successfully!");
-        })
-        .catch((error) => {
-          console.error("Error sending message:", error);
-          
-        });
-    }
-
+  ❌ Avoid overexertion and excessive sugar.
+`;
 
   
     // Construct the API URL with parameters
@@ -248,7 +229,7 @@ ${calendarLink}
       }
     } catch (error) {
       // Handle errors gracefully
-      alert("Failed to send SMS. Please try again later.");
+      console.log(error);
     }
   };
   

@@ -28,7 +28,7 @@ export const Signin = () => {
     return (
         <div className="min-h-screen flex">
             {/* Left Side - Welcome Text */}
-            <div className="w-1/2 bg-gradient-to-br from-blue-500 to-indigo-600 text-white flex justify-center items-center relative overflow-hidden">
+            <div className="w-1/2 bg-gradient-to-br bg-blue-500 text-white flex justify-center items-center relative overflow-hidden">
                 <motion.div
                     className="absolute bottom-0 left-0 w-[150%] h-32 overflow-hidden"
                     initial={{ scale: 1 }}
@@ -112,7 +112,7 @@ export const Signin = () => {
                     {/* Login Button with Hover Effect */}
                     <motion.button
                         onClick={login}
-                        className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition duration-300"
+                        className="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-700 transition duration-300"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.98 }}
                     >
