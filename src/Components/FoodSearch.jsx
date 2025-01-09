@@ -4,7 +4,7 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend, CategoryScale, LinearSca
 import { Pie, Bar } from 'react-chartjs-2';
 import { GiOrangeSlice, GiPineapple, GiGrapes, GiStrawberry } from 'react-icons/gi';
 import { motion, AnimatePresence } from 'framer-motion';
-
+import Navigation from './Navigation';
 ChartJS.register(ArcElement, CategoryScale, LinearScale, BarElement, Tooltip, Legend);
 
 const healthTipsData = [
@@ -205,7 +205,9 @@ const FoodSearch = () => {
   );
 
   return (
-    <div className="min-h-screen bg-white">
+    <div>
+    <Navigation/>
+    <div className="min-h-screen pt-20 bg-white">
       <motion.div 
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -494,6 +496,7 @@ const FoodSearch = () => {
           )}
         </AnimatePresence>
       </motion.div>
+    </div>
     </div>
   );
 };

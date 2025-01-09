@@ -2,7 +2,7 @@ import React from 'react'
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import { Link } from 'react-router-dom';
-
+import Navigation from './Navigation';
 
 
 const services = [
@@ -11,14 +11,21 @@ const services = [
    
     title: "Nutrition Finder",
     description: "Restores movement, strengthens muscles, and improves overall physical function.",
-    image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef",
+    image: "https://plus.unsplash.com/premium_photo-1675798983878-604c09f6d154?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     path: "/nutrition"
+  },
+  {
+   
+    title: "BMI Calculator",
+    description: "Restores movement, strengthens muscles, and improves overall physical function.",
+    image: "https://images.unsplash.com/photo-1618939291225-8d558ea4369f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    path: "/bmi-calculator"
   },
   {
     
     title: "DrugInfo",
     description: "Strengthens heart, improves circulation, and boosts overall cardiovascular fitness.",
-    image: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b",
+    image: "https://images.unsplash.com/photo-1471864190281-a93a3070b6de?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     path: "/drug-info"
   },
   {
@@ -32,29 +39,29 @@ const services = [
     
     title: "Nearby Hospital",
     description: "Regular check-ups and screenings to detect and prevent potential health issues.",
-    image: "https://images.unsplash.com/photo-1505751172876-fa1923c5c528",
+    image: "https://images.unsplash.com/photo-1512678080530-7760d81faba6?q=80&w=2074&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     path: "/nearby-hospital"
   },
   {
     
     title: "Menstrual Cycle Predictor",
     description: "Personalized dietary advice to improve overall health and manage specific conditions.",
-    image: "https://images.unsplash.com/photo-1490645935967-10de6ba17061",
+    image: "https://images.birlafertility.com/spai/ret_img/birlafertility.com/wp-content/uploads/2024/04/Untitled-4-2-scaled.webp",
     path: "/period-predictor"
   },
   {
     
     title: "BreathSafe",
     description: "Diagnosis and treatment of sleep disorders for better rest and improved health.",
-    image: "https://images.unsplash.com/photo-1541781774459-bb2af2f05b55",
+    image: "https://www.healthscreenuk.co.uk/wp-content/uploads/2024/09/AdobeStock_594165142-scaled.jpeg.webp",
     path: "/breathsafe"
   },
   {
     
     title: "Pharmacy Finder",
     description: "Specialized care for musculoskeletal system, including bones, joints, and muscles.",
-    image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b",
-    path: "/pharmacy-finder"
+    image: "https://content3.jdmagicbox.com/comp/lucknow/g3/0522px522.x522.210301115417.c5g3/catalogue/go-pharmacy-india-gomti-nagar-lucknow-chemists-2tfwifcxhe.jpg",
+    path: "/nearby-pharmacy"
   }
 ]
 
@@ -66,6 +73,8 @@ function ServiceCard({ service, index }) {
   const y = useSpring(useTransform(scrollYProgress, [0, 1], [100, 0]), springConfig)
 
   return (
+    <div>
+    <Navigation/>
     <motion.div
       initial={{ opacity: 0, y: 100 }}
       whileInView={{ 
@@ -161,6 +170,7 @@ function ServiceCard({ service, index }) {
         />
       </motion.div>
     </motion.div>
+    </div>
   )
 }
 

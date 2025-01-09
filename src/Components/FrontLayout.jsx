@@ -868,11 +868,11 @@ function ServiceItem({ title, description, image, link, large }) {
         linkPath: "/nearby-hospital",
       },
       {
-        image: "https://images.unsplash.com/photo-1618939291225-8d558ea4369f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fERpZXR8ZW58MHx8MHx8fDA%3D",
-        title: "BMI Calculator",
-        description: "Easily calculate your Body Mass Index (BMI) and unlock a tailored diet plan designed to meet your health goals. Start your journey to better health today!",
-        buttonLabel: "Track BMI & Get a Diet Plan",
-        linkPath: "/bmi-calculator",
+        image: "https://images.unsplash.com/photo-1546198632-9ef6368bef12?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        title: "Documentation",
+        description: "Upload your documents here so that you can access them anywhere and anytime!",
+        buttonLabel: "Upload Your Documents",
+        linkPath: "/upload-file",
       }
     ];
   
