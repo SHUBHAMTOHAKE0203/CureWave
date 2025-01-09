@@ -63,33 +63,34 @@ backgrounds.forEach(url => {
 
 const sections = [
   {
-    title: "DISCOVER YOUR HEALTH",
-    description: "Experience innovative healthcare solutions at CureWave. Whether you're seeking preventive care or specialized treatment, our state-of-the-art facility offers comprehensive medical services tailored to your needs.",
+    title: "UNLOCK YOUR HEALTH DATA",
+    description: "Empower yourself with CureWave's innovative health data management system. Seamlessly access, track, and manage your medical records in one secure and intuitive platform.",
     steps: [
-      "Medical Evaluation",
-      "Specialized Treatment",
-      "Recovery Support"
+      "Secure Data Upload",
+      "Organized Record Keeping",
+      "24/7 Data Access"
     ]
   },
   {
-    title: "ADVANCED CARE",
-    description: "Join us on a journey to optimal health. Our expert medical team combines cutting-edge technology with compassionate care for your complete well-being.",
+    title: "PERSONALIZED INSIGHTS",
+    description: "Experience the future of healthcare with CureWave's data-driven insights. Our platform leverages advanced analytics to provide tailored recommendations and actionable health insights.",
     steps: [
-      "Health Assessment",
-      "Personalized Care",
-      "Wellness Support"
+      "Health Data Analysis",
+      "Customized Recommendations",
+      "Improved Decision Making"
     ]
   },
   {
-    title: "HEALING JOURNEY",
-    description: "Discover the power of modern healthcare at CureWave. Our innovative approaches and expert medical team create a path to lasting wellness.",
+    title: "YOUR HEALTH, SIMPLIFIED",
+    description: "Streamline your healthcare journey with CureWave. Our user-friendly tools ensure seamless communication, efficient data sharing, and enhanced collaboration between patients and healthcare providers.",
     steps: [
-      "Initial Screening",
-      "Treatment Plan",
-      "Ongoing Care"
+      "Easy Data Sharing",
+      "Real-Time Notifications",
+      "Collaborative Care"
     ]
   }
-]
+];
+
 
 function Navigation({ isScrolled }) {
   const navItems = [
@@ -311,20 +312,21 @@ function FrontPage() {
                 transition={{ delay: 0.7, duration: 0.8 }}
               >
                 <motion.a
-                  href="#about-us"
+                  href="/about"
                   className="px-8 py-3 bg-blue-400 rounded-full text-lg font-medium hover:bg-blue-500 transition-colors text-center"
                   whileHover={{ scale: 1.05, backgroundColor: "#60a5fa" }}
                   whileTap={{ scale: 0.95 }}
                 >
                   About Us
                 </motion.a>
-                <motion.button
+                <motion.a
+                href="/login"
                   className="px-8 py-3 border-2 border-white rounded-full text-lg font-medium hover:bg-white/10 transition-colors"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
                   Get in Touch
-                </motion.button>
+                </motion.a>
               </motion.div>
             </motion.div>
 
@@ -384,18 +386,19 @@ function AboutUs() {
 
   const features = [
     {
-      title: "We deliver exceptional care",
-      content: "At CureWave, we are committed to providing you with an exceptional healthcare experience that is unmatched in the field. Our dedication to excellence ensures that every patient receives the highest quality of care."
+      title: "Streamlined Data Management",
+      content: "At CureWave, we simplify healthcare by providing a centralized platform for securely managing your medical records. Say goodbye to fragmented data and hello to seamless organization."
     },
     {
-      title: "We use advanced technology",
-      content: "With our commitment to staying at the forefront of technological advancements, we ensure that you receive the best possible care using the latest medical tools and techniques."
+      title: "Cutting-Edge Analytics",
+      content: "Leverage the power of advanced data analytics to gain actionable insights into your health. Our platform helps you and your healthcare providers make informed decisions for better outcomes."
     },
     {
-      title: "We focus on patient comfort",
-      content: "Your comfort is our priority. We've created a warm and welcoming environment designed to put our patients at ease from the moment they walk through our doors."
+      title: "Patient-Centered Design",
+      content: "CureWave is designed with you in mind. Enjoy an intuitive and user-friendly interface that makes accessing, sharing, and understanding your health data effortless and efficient."
     }
-  ]
+  ];
+  
 
   return (
     <motion.div
@@ -440,17 +443,18 @@ function AboutUs() {
             viewport={{ once: true }}
             className="space-y-8"
           >
-            <span className="text-blue-400 text-xl font-medium inline-block">
-              Get To Know Us
-            </span>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900">
-              Excellence in Modern Healthcare
-            </h2>
-            <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
-              At CureWave, we understand that healthcare should be both advanced and accessible.
-              That's why we've created a patient-centered environment that combines cutting-edge
-              technology with compassionate care.
-            </p>
+          <span className="text-blue-400 text-xl font-medium inline-block">
+          Discover CureWave
+        </span>
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900">
+          Revolutionizing Health Data Management
+        </h2>
+        <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
+          At CureWave, we believe that managing your health data should be seamless and empowering. 
+          Our innovative platform bridges the gap between advanced technology and personalized healthcare, 
+          providing secure, accessible, and actionable insights for patients and providers alike.
+        </p>
+        
 
             <div className="space-y-4">
               {features.map((feature, index) => (
@@ -485,39 +489,14 @@ function AboutUs() {
             }}
             viewport={{ once: true }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Our Philosophy</h2>
-            <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
-              We are committed to providing a holistic approach to healthcare, incorporating
-              the latest medical advances with personalized attention. Our services are designed
-              to cater to all levels of care, promoting physical wellness, mental clarity, and
-              emotional well-being.
-            </p>
-            <motion.button
-              className="relative px-8 py-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-full text-lg font-medium overflow-hidden group"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <span className="relative z-10 flex items-center gap-2">
-                Learn More
-                <motion.span
-                  initial={{ x: 0 }}
-                  animate={{ x: 5 }}
-                  transition={{
-                    duration: 0.6,
-                    repeat: Infinity,
-                    repeatType: "reverse"
-                  }}
-                >
-                  →
-                </motion.span>
-              </span>
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-700"
-                initial={{ x: "-100%" }}
-                whileHover={{ x: 0 }}
-                transition={{ duration: 0.3 }}
-              />
-            </motion.button>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Our Philosophy</h2>
+          <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
+            At CureWave, we believe in empowering individuals through efficient health data management. 
+            Our philosophy revolves around making healthcare more accessible, personalized, and data-driven, 
+            enabling better decisions for a healthier future.
+          </p>
+          
+            
           </motion.div>
 
           <motion.div
@@ -731,18 +710,19 @@ function ServiceItem({ title, description, image, link, large }) {
           <div className="grid grid-cols-12 gap-8">
             {/* Left Column - Text Content */}
             <div className="col-span-12 lg:col-span-4">
-              <h2 className="text-blue-400 text-xl font-medium mb-4">
-                OUR SERVICES
-              </h2>
-              <h3 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                Our services for a healthy body
-              </h3>
-              <p className="text-lg text-gray-600">
-                Experience our range of advanced medical services designed to
-                provide you with the highest quality of care and support for your
-                health journey.
-              </p>
-            </div>
+  <h2 className="text-blue-400 text-xl font-medium mb-4">
+    OUR SERVICES
+  </h2>
+  <h3 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+    Simplifying Health Data 
+  </h3>
+  <p className="text-lg text-gray-600">
+    CureWave offers a comprehensive platform to manage your health data efficiently. 
+    From secure record storage to real-time access and seamless sharing, our services 
+    empower patients and healthcare providers to collaborate effectively for better outcomes.
+  </p>
+</div>
+
   
             {/* Right Column - Cards Grid */}
             <div className="col-span-12 lg:col-span-8 space-y-8">
@@ -904,8 +884,10 @@ function ServiceItem({ title, description, image, link, large }) {
               Your Partner in Health and Wellness
             </h1>
             <p className="text-xl text-muted-foreground">
-              We provide comprehensive healthcare for every stage of life. Our specialists offer services designed to meet your unique needs.
-            </p>
+  We offer a robust health data management platform for all stages of your healthcare journey. 
+  Our tools are designed to cater to your unique needs, ensuring secure access and actionable insights.
+</p>
+
           </div>
           <div className="relative mx-auto max-w-5xl h-[700px] mt-32">
             {services.map((service, index) => (

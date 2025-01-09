@@ -23,6 +23,7 @@ import { UserInfo } from './Components/UserInfo';
 import { Signout } from './Components/Signout';
 import HealthTipsCards from './Components/Tips';
 import Chatbot from './Components/CureMate';
+import DonateUs from './Components/DonateUs';
 
 function App() {
   return (
@@ -45,8 +46,11 @@ function App() {
           <Route path="/user-info" element={<UserInfo />} />
           <Route path="/signup" element={<Signout/>}/>
           <Route path="/health-tips" element={<HealthTipsCards/>}/>
+          <Route path="/bmi-calculator" element={<Bmi/>}/>
+          <Route path="/donate-us" element={<DonateUs/>}/>
         </Routes>
         <Chatbot/>
+     
       </div>
     </Router>
   );

@@ -45,26 +45,27 @@ export default function FAQ() {
 
   const faqs = [
     {
-      question: "What medical services do you offer?",
-      answer: "We offer a comprehensive range of medical services including preventive care, specialized treatments, diagnostic services, and rehabilitation programs. Our facilities are equipped with state-of-the-art technology and staffed by experienced healthcare professionals to provide the highest quality of care."
+      question: "What is CureWave's primary service?",
+      answer: "CureWave specializes in health data management, providing a secure platform to store, access, and share your medical records. Our tools are designed to enhance collaboration between patients and healthcare providers."
     },
     {
-      question: "How do I schedule an appointment?",
-      answer: "Scheduling an appointment is easy! You can book online through our patient portal, call our dedicated appointment line, or use our mobile app. We offer flexible scheduling options including same-day appointments for urgent cases and extended hours for your convenience."
+      question: "How can I access my health data?",
+      answer: "You can access your health data anytime through our user-friendly web portal or mobile app. Our platform ensures secure login and provides an intuitive interface for seamless navigation."
     },
     {
-      question: "Do you accept insurance?",
-      answer: "Yes, we accept most major insurance plans and work with various healthcare providers. Our billing team can help verify your coverage and explain any out-of-pocket costs before your visit. We also offer flexible payment plans for those without insurance."
+      question: "Is my health data secure with CureWave?",
+      answer: "Absolutely. CureWave uses advanced encryption and security protocols to protect your data. We comply with all relevant healthcare regulations, ensuring your information remains confidential."
     },
     {
-      question: "What should I bring to my first appointment?",
-      answer: "Please bring a valid photo ID, your insurance card, a list of current medications, relevant medical records, and any recent test results. Arriving 15 minutes early to complete necessary paperwork will help ensure a smooth first visit."
+      question: "Can I share my health records with my doctor?",
+      answer: "Yes, CureWave allows you to share your health records securely with your healthcare providers. You can control who has access to your data and for how long, ensuring complete privacy."
     },
     {
-      question: "Are telehealth services available?",
-      answer: "Yes, we offer secure telehealth consultations for eligible appointments. This service allows you to connect with our healthcare providers from the comfort of your home using your computer or mobile device. Contact us to learn if your condition qualifies for telehealth."
+      question: "Do you offer real-time updates and notifications?",
+      answer: "Yes, CureWave provides real-time updates and notifications for new test results, data changes, and appointment reminders. Stay informed and connected at all times."
     }
-  ]
+  ];
+  
 
   return (
     <div className="py-24 bg-gradient-to-br from-blue-50/50 to-white">

@@ -59,11 +59,11 @@ export default function Footer() {
   }, [currentQuote])
 
   return (
-    <footer className="w-full relative bg-blue-50">
+    <footer className="w-full relative bg-white">
       {/* Upper Section */}
       <div className="container mx-auto px-4">
         <div className="bg-blue-400 text-white p-8 rounded-2xl relative z-10 mb-[-2rem] overflow-hidden">
-          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-600 to-indigo-800 opacity-50"></div>
+          <div className="absolute top-0 left-0 w-full h-full bg-blue-400 opacity-50"></div>
           <div className="relative z-10 flex flex-col md:flex-row justify-between items-center gap-6">
             <div className="max-w-xl">
               <h2 className="text-3xl font-bold mb-3 flex items-center">
@@ -118,7 +118,7 @@ export default function Footer() {
                   placeholder="Enter email address"
                   className="bg-[#222327] border-gray-700"
                 />
-                <Button className="bg-[#4361ee] hover:bg-blue-600 text-white">
+                <Button className="bg-blue-400 text-white">
                   Subscribe
                 </Button>
               </div>

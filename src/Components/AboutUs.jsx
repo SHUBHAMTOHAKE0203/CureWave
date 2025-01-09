@@ -21,13 +21,14 @@ export default function AboutUs() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <h2 className="text-3xl font-semibold mb-4">Our Mission</h2>
-            <p className="text-lg text-gray-700 mb-6">
-              At CureWave, our mission is to provide exceptional, patient-centered healthcare that improves the quality of life for our community. We strive to combine cutting-edge medical technology with compassionate care to ensure the best possible outcomes for our patients.
-            </p>
-            <p className="text-lg text-gray-700">
-              We believe in a holistic approach to health, addressing not just physical ailments but also promoting mental and emotional well-being. Our team of dedicated professionals works tirelessly to create a healing environment that supports recovery and fosters long-term health.
-            </p>
+          <h2 className="text-3xl font-semibold mb-4">Our Mission</h2>
+          <p className="text-lg text-gray-700 mb-6">
+            At CureWave, our mission is to empower individuals through innovative health data management solutions that streamline healthcare processes and enhance patient care. We aim to provide a seamless experience for both patients and healthcare providers by leveraging cutting-edge technology.
+          </p>
+          <p className="text-lg text-gray-700">
+            We believe in making healthcare more accessible, transparent, and actionable. By giving patients control over their health data, we promote informed decisions, better collaboration with healthcare professionals, and ultimately, improved health outcomes.
+          </p>
+          
           </motion.div>
           <motion.div
             className="relative h-80 rounded-lg overflow-hidden shadow-xl"
@@ -52,9 +53,19 @@ export default function AboutUs() {
           <h2 className="text-3xl font-semibold mb-6 text-center">Our Core Values</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              { title: "Excellence", description: "We strive for excellence in all aspects of our care, continuously improving our services and skills." },
-              { title: "Compassion", description: "We treat each patient with empathy, respect, and kindness, recognizing their individual needs and concerns." },
-              { title: "Innovation", description: "We embrace innovative technologies and treatments to provide the most advanced care possible." }
+              { 
+                title: "Data Security", 
+                description: "We prioritize the security of your health data, implementing robust encryption and compliance with the highest industry standards to ensure your information remains confidential." 
+              },
+              { 
+                title: "Patient-Centered Care", 
+                description: "We place patients at the heart of everything we do, providing intuitive tools for easy access to health data, empowering individuals to take control of their well-being." 
+              },
+              { 
+                title: "Advanced Technology", 
+                description: "We integrate the latest in health data management technology, enabling seamless record sharing, real-time updates, and smart analytics for better decision-making." 
+              }
+              
             ].map((value, index) => (
               <div key={index} className="text-center">
                 <h3 className="text-xl font-semibold mb-2">{value.title}</h3>
@@ -70,17 +81,19 @@ export default function AboutUs() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.8 }}
         >
-          <h2 className="text-3xl font-semibold mb-6">Join Us on Our Journey</h2>
-          <p className="text-lg text-gray-700 mb-8 max-w-2xl mx-auto">
-            We're always looking for passionate individuals to join our team and help us in our mission to provide exceptional healthcare. Whether you're a medical professional or support staff, there might be a place for you at CureWave.
-          </p>
-          <motion.button
+        <h2 className="text-3xl font-semibold mb-6">Support Our Mission</h2>
+        <p className="text-lg text-gray-700 mb-8 max-w-2xl mx-auto">
+          Your generous donations help us continue to provide cutting-edge healthcare and innovative health data management solutions to those in need. By contributing to CureWave, you're directly supporting our efforts to improve patient care and outcomes for the entire community.
+        </p>
+        
+          <motion.a
+          href='/donate-us'
             className="bg-blue-500 text-white px-6 py-3 rounded-full text-lg font-medium inline-flex items-center gap-2 hover:bg-blue-600 transition-colors"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            Explore Careers <ArrowRight className="w-5 h-5" />
-          </motion.button>
+            Donate Us <ArrowRight className="w-5 h-5" />
+          </motion.a>
         </motion.div>
       </main>
     </div>
