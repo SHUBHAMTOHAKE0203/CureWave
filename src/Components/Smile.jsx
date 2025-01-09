@@ -1,38 +1,71 @@
-import React from "react"
+import React, { useState, useEffect } from "react";
+
 import { Toaster } from "sonner"
 import { Twitter, Instagram, Facebook, Linkedin, Heart } from 'lucide-react'
 
-const PhotoUpload = () => (
-  <div className="text-left space-y-6">
-    <div className="flex items-center justify-center">
-      <input
-        type="file"
-        accept="image/*"
-        className="hidden"
-        id="photo-upload"
-        onChange={(e) => {
-          const file = e.target.files?.[0]
-          if (file) {
-            // Handle file upload here
-            console.log("File selected:", file)
-          }
-        }}
-      />
-      <label
-        htmlFor="photo-upload"
-        className="cursor-pointer flex flex-col items-center space-y-6 text-gray-500 hover:text-gray-700 transition-colors"
-      >
-        <div className="w-20 h-20 bg-gray-50 rounded-full flex items-center justify-center">
-          <span className="text-4xl">📸</span>
-        </div>
-        <div className="text-center">
-          <p className="font-medium text-lg">Upload your smiling photo</p>
-          <p className="text-sm mt-2">Drag and drop or click to select</p>
-        </div>
-      </label>
+
+
+const PhotoUpload = () => {
+  const [filePreview, setFilePreview] = useState(null);
+
+  // Load the file from localStorage when the component mounts
+  useEffect(() => {
+    const savedFile = localStorage.getItem("uploadedFile");
+    if (savedFile) {
+      setFilePreview(savedFile); // Load preview from localStorage
+    }
+  }, []);
+
+  const handleFileChange = (e) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        const result = reader.result;
+        setFilePreview(result); // Create a preview URL
+        localStorage.setItem("uploadedFile", result); // Save to localStorage
+      };
+      reader.readAsDataURL(file); // Convert file to base64
+    }
+  };
+
+  return (
+    <div className="text-left space-y-6">
+      <div className="flex items-center justify-center">
+        <input
+          type="file"
+          accept="image/*"
+          className="hidden"
+          id="photo-upload"
+          onChange={handleFileChange}
+        />
+        <label
+          htmlFor="photo-upload"
+          className="cursor-pointer flex flex-col items-center space-y-6 text-gray-500 hover:text-gray-700 transition-colors"
+        >
+          {filePreview ? (
+            <img
+              src={filePreview}
+              alt="Preview"
+              className="w-20 h-20 rounded-full object-cover"
+            />
+          ) : (
+            <div className="w-40 h-40 bg-gray-50 rounded-full flex items-center justify-center">
+              <span className="text-6xl">📸</span>
+            </div>
+
+          )}
+          <div className="text-center">
+            <p className="font-medium text-lg">Upload your smiling photo</p>
+            <p className="text-sm mt-2">Drag and drop or click to select</p>
+          </div>
+        </label>
+      </div>
     </div>
-  </div>
-)
+  );
+};
+
+
 
 const MacWindowFrame = ({ children }) => (
   <div className="w-full max-w-7xl mx-auto rounded-2xl overflow-hidden shadow-2xl bg-white">
@@ -53,7 +86,7 @@ const SmilingPhoto = ({ src, caption, size = "normal", className = "" }) => {
   }
 
   return (
-    <div 
+    <div
       className={`relative transform transition-all duration-500 hover:scale-105 hover:-rotate-2 ${className}`}
     >
       <div className="absolute -top-2 -right-2 w-8 h-8 bg-pink-200 rounded-full flex items-center justify-center text-pink-500 text-base animate-bounce">
@@ -80,7 +113,7 @@ const StoryCard = ({ title, content }) => (
 )
 
 const SocialShareButton = ({ icon: Icon, label, color, hashtags }) => (
-  <button 
+  <button
     className={`flex items-center space-x-3 px-5 py-3 rounded-full text-white transition-transform hover:scale-105 ${color}`}
     onClick={() => window.open(`https://twitter.com/intent/tweet?text=Joined%20the%20smile%20movement!%20${hashtags}`, '_blank')}
   >
@@ -119,7 +152,7 @@ export default function Smile() {
                       a smile becomes our symbol of resilience. It's not about hiding our pain, but about showing
                       that we're stronger than our struggles.
                     </p>
-                    
+
                     <blockquote className="border-l-4 border-gray-200 pl-6 italic my-8">
                       <p className="text-xl">"Sometimes your joy is the source of your smile, but sometimes your smile can be the source of your joy."</p>
                       <footer className="text-base text-gray-600 mt-3">- Thich Nhat Hanh</footer>
@@ -156,7 +189,7 @@ export default function Smile() {
                       <Heart className="text-pink-500 animate-pulse" size={32} />
                     </h2>
                     <p className="text-gray-700 text-xl leading-relaxed">
-                      Your smile is proof that hope exists even in the toughest times. 
+                      Your smile is proof that hope exists even in the toughest times.
                       Share it to inspire others who might be fighting similar battles.
                       Remember, you're not just sharing a photo - you're sharing hope.
                     </p>
@@ -169,28 +202,28 @@ export default function Smile() {
                   <div className="space-y-6">
                     <p className="font-medium text-gray-700 text-lg">Share your story with the world:</p>
                     <div className="flex flex-wrap gap-4">
-                      <SocialShareButton 
-                        icon={Twitter} 
-                        label="Twitter" 
-                        color="bg-[#1DA1F2]" 
+                      <SocialShareButton
+                        icon={Twitter}
+                        label="Twitter"
+                        color="bg-[#1DA1F2]"
                         hashtags="#KeepSmiling #StayStrong #SmileMovement"
                       />
-                      <SocialShareButton 
-                        icon={Instagram} 
-                        label="Instagram" 
-                        color="bg-[#E4405F]" 
+                      <SocialShareButton
+                        icon={Instagram}
+                        label="Instagram"
+                        color="bg-[#E4405F]"
                         hashtags="#KeepSmiling #StayStrong #SmileMovement"
                       />
-                      <SocialShareButton 
-                        icon={Facebook} 
-                        label="Facebook" 
-                        color="bg-[#1877F2]" 
+                      <SocialShareButton
+                        icon={Facebook}
+                        label="Facebook"
+                        color="bg-[#1877F2]"
                         hashtags="#KeepSmiling #StayStrong #SmileMovement"
                       />
-                      <SocialShareButton 
-                        icon={Linkedin} 
-                        label="LinkedIn" 
-                        color="bg-[#0A66C2]" 
+                      <SocialShareButton
+                        icon={Linkedin}
+                        label="LinkedIn"
+                        color="bg-[#0A66C2]"
                         hashtags="#KeepSmiling #StayStrong #SmileMovement"
                       />
                     </div>
@@ -205,35 +238,35 @@ export default function Smile() {
               {/* Right Photos Section */}
               <div className="w-[320px] relative">
                 <div className="sticky top-8 grid grid-cols-2 gap-5 auto-rows-min">
-                  <SmilingPhoto 
-                    src="https://images.unsplash.com/photo-1499557354967-2b2d8910bcca" 
+                  <SmilingPhoto
+                    src="https://images.unsplash.com/photo-1499557354967-2b2d8910bcca"
                     caption="Maria, beating cancer with a smile"
                     size="large"
                     className="col-span-2"
                   />
-                  <SmilingPhoto 
-                    src="https://images.unsplash.com/photo-1537511446984-935f663eb1f4" 
+                  <SmilingPhoto
+                    src="https://images.unsplash.com/photo-1537511446984-935f663eb1f4"
                     caption="John, 2 years after recovery"
                     size="small"
                   />
-                  <SmilingPhoto 
-                    src="https://images.unsplash.com/photo-1605108040941-7c762d5ed4e4" 
+                  <SmilingPhoto
+                    src="https://images.unsplash.com/photo-1605108040941-7c762d5ed4e4"
                     caption="Emma, finding strength in community"
                     size="small"
                   />
-                  <SmilingPhoto 
-                    src="https://images.unsplash.com/photo-1545167622-3a6ac756afa4" 
+                  <SmilingPhoto
+                    src="https://images.unsplash.com/photo-1545167622-3a6ac756afa4"
                     caption="Tom, spreading joy every day"
                     size="large"
                     className="col-span-2"
                   />
-                  <SmilingPhoto 
-                    src="https://images.unsplash.com/photo-1528892952291-009c663ce843" 
+                  <SmilingPhoto
+                    src="https://images.unsplash.com/photo-1528892952291-009c663ce843"
                     caption="Lisa, embracing each moment"
                     size="normal"
                   />
-                  <SmilingPhoto 
-                    src="https://images.unsplash.com/photo-1573007974656-b958089e9f7b" 
+                  <SmilingPhoto
+                    src="https://images.unsplash.com/photo-1573007974656-b958089e9f7b"
                     caption="David, finding peace"
                     size="normal"
                   />
@@ -251,4 +284,3 @@ export default function Smile() {
     </div>
   )
 }
-

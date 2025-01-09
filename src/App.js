@@ -25,11 +25,14 @@ import Chatbot from './Components/CureMate';
 import DonateUs from './Components/DonateUs';
 import UploadFile from './Components/UploadFile';
 import AppointmentCards from './Components/Appointments';
+
+import ContactUs from './Components/ContactUs';
 import SchedulerButtonone from './Components/Doctor01';
 import SchedulerButtontwo from './Components/Doctor02';
 import SchedulerButtonthree from './Components/Doctor03';
 import SchedulerButtonfour from './Components/Doctor04';
 import SchedulerButtonfive from './Components/Doctor05';
+
 
 function App() {
   return (
@@ -40,6 +43,7 @@ function App() {
           <Route path="/services" element={<Services />} />
           <Route path="/about" element={<AboutUs />} />
           <Route path="/news" element={<HealthNewsCards />} />
+          <Route path="/contact" element={<ContactUs />} />
           <Route path="/nearby-pharmacy" element={<NearByPharmacy />} /> 
           <Route path="/breathsafe" element={<AirQualityMap/>}/>
           <Route path="/Doctor1" element={<SchedulerButtonone/>}/>
