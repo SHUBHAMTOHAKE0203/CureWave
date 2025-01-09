@@ -19,10 +19,10 @@ app.use("/files" , express.static("files" ))
 
 //doing it my way ------ 
 
-
+require("dotenv").config();
 
 const dbConnect = () =>{
-    mongoose.connect( ('mongodb+srv://vanshwaldeo360:0kohejoqBYn5e35W@cluster0.sdv6m.mongodb.net/Documents-Database'), {
+    mongoose.connect( (process.env.DATABASE_URL), {
         useNewUrlParser : true,
         useUnifiedTopology : true,
     })
