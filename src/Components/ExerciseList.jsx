@@ -97,7 +97,7 @@ export default function ExerciseList() {
   const [exercises, setExercises] = useState([])
   const [loading, setLoading] = useState(false)
   const [activeSection, setActiveSection] = useState("info")
-
+  const [isExpanded, setIsExpanded] = useState(false);
   const fetchExercises = async (muscle) => {
     setLoading(true)
     try {
@@ -293,12 +293,20 @@ export default function ExerciseList() {
                         </span>
                       </div>
                       <div className="relative mt-4 overflow-hidden rounded-xl bg-gray-50 p-4">
-                        <h4 className="mb-2 font-semibold text-gray-900">Instructions:</h4>
-                        <p className="text-sm leading-relaxed text-gray-600">
-                          {exercise.instructions}
-                        </p>
-                        <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-gray-50 to-transparent" />
-                      </div>
+  <h4 className="mb-2 font-semibold text-gray-900">Instructions:</h4>
+  <p className="text-sm leading-relaxed text-gray-600">
+    {isExpanded
+      ? exercise.instructions
+      : `${exercise.instructions.split(' ').slice(0, 50).join(' ')}...`}
+  </p>
+  <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-gray-50 to-transparent" />
+  <button
+    onClick={() => setIsExpanded(!isExpanded)}
+    className="text-blue-500 underline mt-2"
+  >
+    {isExpanded ? 'Read less' : 'Read more'}
+  </button>
+</div>
                     </div>
                     <div className="absolute right-0 top-0 h-full w-1/3 bg-gradient-to-l from-blue-50 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
                   </motion.div>

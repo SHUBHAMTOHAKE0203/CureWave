@@ -111,7 +111,7 @@ export default function DrugInfoSearch() {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
   const [activeTab, setActiveTab] = useState('info')
-
+  const [isExpanded, setIsExpanded] = useState(false);
   const handleSearch = async () => {
     if (!drugName) return
     
@@ -175,13 +175,13 @@ export default function DrugInfoSearch() {
                 <Button 
                   onClick={handleSearch}
                   disabled={loading || !drugName}
-                  className="bg-blue-500 text-white hover:bg-blue-600"
+                  className="bg-blue-500 text-white  hover:bg-blue-600"
                 >
                   {loading ? (
                     <Loader2 className="w-4 h-4 animate-spin" />
                   ) : (
                     <>
-                      <Search className="w-4 h-4 mr-2" />
+                      
                       Search
                     </>
                   )}
@@ -322,29 +322,41 @@ export default function DrugInfoSearch() {
                       </Card>
                     </motion.div>
                   )}
+                    
+
 
                   {/* Warnings */}
-                  {drugInfo.warnings && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.4 }}
-                    >
-                      <Card className="border-red-100">
-                        <CardHeader>
-                          <div className="flex items-center gap-2 font-semibold text-xl text-red-600">
-                            <AlertTriangle className="w-5 h-5" />
-                            Important Warnings
-                          </div>
-                        </CardHeader>
-                        <CardContent>
-                          <div className="prose prose-red max-w-none">
-                            <p>{drugInfo.warnings[0]}</p>
-                          </div>
-                        </CardContent>
-                      </Card>
-                    </motion.div>
-                  )}
+{drugInfo.warnings && (
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ delay: 0.4 }}
+  >
+    <Card className="border-red-100">
+      <CardHeader>
+        <div className="flex items-center gap-2 font-semibold text-xl text-red-600">
+          <AlertTriangle className="w-5 h-5" />
+          Important Warnings
+        </div>
+      </CardHeader>
+      <CardContent>
+        <div className="prose prose-red max-w-none">
+          <p
+            className={`line-clamp-${isExpanded ? 0 : 2}`}
+          >
+            {drugInfo.warnings}
+          </p>
+          <button
+            onClick={() => setIsExpanded(!isExpanded)}
+            className="text-blue-500 underline"
+          >
+            {isExpanded ? 'Read less' : 'Read more'}
+          </button>
+        </div>
+      </CardContent>
+    </Card>
+  </motion.div>
+)}
 
                   {/* Dosage Information */}
                   {drugInfo.dosage_and_administration && (
