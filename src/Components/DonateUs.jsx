@@ -14,16 +14,6 @@ const ImpactCard = ({ icon: Icon, title, value }) => (
   </motion.div>
 );
 
-const DonationOption = ({ amount, description }) => (
-  <motion.div
-    className="bg-blue-50 p-6 rounded-xl cursor-pointer"
-    whileHover={{ scale: 1.05, backgroundColor: "#EBF5FF" }}
-    transition={{ type: "spring", stiffness: 300 }}
-  >
-    <h4 className="text-2xl font-bold text-blue-700 mb-2">₹{amount}</h4>
-    <p className="text-gray-600">{description}</p>
-  </motion.div>
-);
 
 const impactItems = [
   { icon: '💊', label: 'Medicines Provided', baseValue: 10, unit: 'families' },

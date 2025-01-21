@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react'
 import { motion, useScroll, useTransform, useSpring, AnimatePresence, useInView } from 'framer-motion'
-import { ArrowRight, ChevronDown, ChevronUp, ArrowDown, Plus, Minus, Star, ChevronLeft, ChevronRight, Twitter, Instagram, Facebook, Linkedin, Heart } from 'lucide-react'
+import { ArrowRight, ChevronDown, ChevronUp, ArrowDown } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { Toaster } from "sonner"
 import { createGlobalStyle } from 'styled-components'
@@ -9,7 +9,7 @@ import FAQ from './FAQ';
 import Smile from './Smile';
 import Testimonials from './Testimonials';
 import Footer from './Footer';
-
+import { logOutUser } from '../firebaseHelpers'
 const GlobalStyle = createGlobalStyle`
   body {
     overflow-x: hidden;

@@ -57,6 +57,12 @@ const services = [
     path: "/breathsafe"
   },
   {
+    title: "Healthy Recipe Finder",
+    description: "Enter your daily calorie goal",
+    image: "https://images.unsplash.com/photo-1494390248081-4e521a5940db?q=80&w=2006&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    path: "/nutri-info"
+  },
+  {
     
     title: "Pharmacy Finder",
     description: "Specialized care for musculoskeletal system, including bones, joints, and muscles.",

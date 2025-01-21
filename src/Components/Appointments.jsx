@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Search, MapPin, Star, Clock, Calendar, ChevronLeft, Filter, CheckCircle2, X } from 'lucide-react';
+import { Search, MapPin, Star, Clock, Calendar, ChevronLeft, Filter} from 'lucide-react';
 
 const doctors = [
   {
@@ -43,7 +43,7 @@ const doctors = [
     path: "/Doctor4",
     name: "Dr.Dimple Ahuja",
     profession: "Orthopedic Surgeon",
-    image: "https://media.istockphoto.com/id/497142181/photo/physician.jpg?s=612x612&w=0&k=20&c=PX_lRXXQo7lUpE1Slj2vHsiCnZZnVNF_OX99-ag6O_8=",
+    image: "https://images.unsplash.com/photo-1685022036259-04cf91a89af1?q=80&w=1931&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     rating: 4.9,
     experience: "20+ years",
     location: "Powai",

@@ -6,7 +6,7 @@ const SchedulerButtonone = () => {
       <div className="text-center">
         <h1 className="text-2xl font-bold mb-4">Book Your Appointment</h1>
         <a
-          href="https://app.acuityscheduling.com/schedule.php?owner=34436190"
+          href="https://app.acuityscheduling.com/schedule.php?owner=34574706"
           target="_blank"
           rel="noopener noreferrer"
           className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg shadow-lg transition"

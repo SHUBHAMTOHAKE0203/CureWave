@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { Link, useLocation } from 'react-router-dom'
 
 export default function Navigation({ isScrolled }) {
@@ -12,7 +12,7 @@ export default function Navigation({ isScrolled }) {
     { name: "About Us", href: "/about" },
     { name: "Services", href: "/services" },
     { name: "News", href: "/news" },
-    { name: "Contact", href: "/contact-us" },
+    { name: "Contact", href: "/contact" },
   ]
 
   return (
@@ -61,6 +61,7 @@ export default function Navigation({ isScrolled }) {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           transition={{ duration: 0.2 }}
+          onClick={() => window.location.href = "/login"}
         >
           <span className="relative z-10 text-white">Get Started</span>
           <motion.div 

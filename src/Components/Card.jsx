@@ -71,7 +71,7 @@ export default function NutritionServiceCard() {
           </div>
           <button
             className="bg-blue-600 hover:bg-blue-700 text-white rounded-full px-6 py-2 text-sm font-medium transition-colors duration-200"
-            onClick={() => navigate('/nutri-info')}
+            onClick={() => navigate('/nutrition')}
           >
             More Info
           </button>
