@@ -5,14 +5,14 @@ import { getDatabase } from "firebase/database";
 // Your web app's Firebase configuration
 const firebaseConfig = {
   
-  apiKey: process.env.FIREBASE_API_KEY,
-  authDomain: process.env.AUTH_DOMAIN,
-  databaseURL: process.env.DATABASE_URL,
-  projectId: process.env.PROJECT_ID,
-  storageBucket: process.env.STORAGE_BUCKET,
-  messagingSenderId: process.env.MESSAGE_SEND_ID,
-  appId: process.env.APP_ID,
-  measurementId: process.env.MEASURMENT_ID,
+  apiKey: "AIzaSyAMN_mmA9BxLw1CNgVQuBriSPo5yKn4G78",
+  authDomain: "curewave-2e004.firebaseapp.com",
+  databaseURL: "https://curewave-2e004-default-rtdb.firebaseio.com",
+  projectId: "curewave-2e004",
+  storageBucket: "curewave-2e004.firebasestorage.app",
+  messagingSenderId: "1078651849057",
+  appId: "1:1078651849057:web:f6813683dad5305cf19d20",
+  measurementId: "G-BJB31JDNY4",
 };
 
 // Initialize Firebase
