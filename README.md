@@ -108,7 +108,7 @@ Curewave leverages several third-party APIs to power its features:
 | Weatherbit API            | Air quality data                         |
 | NewsAPI                   | Health news updates                      |
 
-Refer to the [API Workflow](#) section in Postman collection for endpoint details. 12
+Refer to the [API Workflow](#) section in Postman collection for endpoint details.
 
 ## Usage
 
@@ -120,7 +120,7 @@ Refer to the [API Workflow](#) section in Postman collection for endpoint detail
 
 ## Contributing
 
-We welcome contributions of all kinds! Please read our [CONTRIBUTING.md](CONTRIBUTING.md) to get started. Whether it's improving documentation, adding new features, or fixing bugs, your help is appreciated. 18
+We welcome contributions of all kinds! Please read our [CONTRIBUTING.md](CONTRIBUTING.md) to get started. Whether it's improving documentation, adding new features, or fixing bugs, your help is appreciated. 
 
 ## Future Roadmap
 
