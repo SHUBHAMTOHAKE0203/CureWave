@@ -1,74 +1,134 @@
-<<<<<<< HEAD
-# Getting Started with Create React App
+# Curewave
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to **Curewave**, your ultimate health management platform built by the UnbelievAPI Team. Curewave empowers users with personalized health solutions, secure medical record management, and real-time access to critical features—all within a seamless digital experience. Whether you’re locating nearby hospitals in emergencies or scheduling appointments, Curewave has you covered! ([medium.com](https://medium.com/%40shubhamtohakecoc07/curewave-your-ultimate-health-management-platform-f17d2695deef))
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+* [Features](#features)
+* [Tech Stack](#tech-stack)
+* [Getting Started](#getting-started)
 
-### `npm start`
+  * [Prerequisites](#prerequisites)
+  * [Installation](#installation)
+  * [Environment Variables](#environment-variables)
+  * [Running the App](#running-the-app)
+* [API Integrations](#api-integrations)
+* [Usage](#usage)
+* [Contributing](#contributing)
+* [Future Roadmap](#future-roadmap)
+* [License](#license)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+* **Nearby Hospital Locator**: Quickly find hospitals using Leaflet with OpenStreetMap, Overpass API, and Google Maps integrations. View detailed info such as names, addresses, and contacts on an interactive map. 3
+* **User Authentication & Authorization**: Secure sign-up and sign-in powered by Firebase Authentication with real-time database updates on the patient dashboard. 
+* **Comprehensive Health Records**: Aggregate and view your medical history from multiple providers via MongoDB API integration. 
+* **Appointment Scheduling**: Effortlessly book, reschedule, or cancel appointments through the Acuity Scheduling API. 
+* **Pharmacy Finder**: Locate nearby pharmacies with real-time navigation. 
+* **Nutrition Finder**: Personalized dietary recommendations powered by Spoonacular API. 
+* **BMI Calculator**: Instantly calculate your Body Mass Index for goal setting. 
+* **Drug Information**: Access detailed drug data using the FDA Drug Label API. 
+* **Exercise Guides**: Customized workout plans via Exercises by API Ninjas. 
+* **Menstrual Cycle Predictor**: Precision tracking and reminders for menstrual health. 
+* **Air Quality Information**: Real-time air quality updates through Weatherbit API. 
+* **Health News**: Curated health trends and research delivered with NewsAPI. 
+* **Healthy Recipe Finder**: Discover recipes tailored to your dietary needs with the USDA FoodData Central API. 
 
-### `npm test`
+## Tech Stack
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* **Frontend**: ReactJS for dynamic, responsive UI 0
+* **Styling**: TailwindCSS for clean, customizable design 
+* **Backend**: Express.js for robust API handling and integrations 
+* **Database**: MongoDB for secure, efficient health data storage 
+* **Authentication**: Firebase Authentication and real-time database 
+* **API Testing**: Postman for workflow management and endpoint testing 
 
-### `npm run build`
+## Getting Started
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Prerequisites
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+* Node.js (>= 14.x)
+* npm or yarn
+* MongoDB instance or cluster
+* Firebase project credentials
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Installation
 
-### `npm run eject`
+1. Clone the repository:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+   ```bash
+   git clone https://github.com/UnbelievAPI/Curewave.git  
+   cd Curewave
+   ```
+2. Install dependencies:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+   ```bash
+   npm install
+   # or yarn install
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Environment Variables
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Create a `.env` file in the root directory and configure:
 
-## Learn More
+```bash
+REACT_APP_FIREBASE_API_KEY=
+REACT_APP_FIREBASE_AUTH_DOMAIN=
+REACT_APP_FIREBASE_PROJECT_ID=
+MONGODB_URI=
+OPENSTREETMAP_TOKEN=
+ACUITY_API_KEY=
+SPOONACULAR_API_KEY=
+# ... other API keys
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Running the App
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+npm start
+# or yarn start
+```
 
-### Code Splitting
+The app will launch at `http://localhost:3000`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## API Integrations
 
-### Analyzing the Bundle Size
+Curewave leverages several third-party APIs to power its features:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+| API                       | Purpose                                  |
+| ------------------------- | ---------------------------------------- |
+| Leaflet OpenStreetMap API | Interactive mapping                      |
+| Overpass API              | Location data for hospitals & pharmacies |
+| Spoonacular API           | Nutrition and recipe suggestions         |
+| Acuity Scheduling API     | Appointment management                   |
+| USDA FoodData Central API | Nutritional insights                     |
+| FDA Drug Label API        | Drug information                         |
+| Exercises by API Ninjas   | Exercise data                            |
+| TextMeBot API             | Notifications and reminders              |
+| Weatherbit API            | Air quality data                         |
+| NewsAPI                   | Health news updates                      |
 
-### Making a Progressive Web App
+Refer to the [API Workflow](#) section in Postman collection for endpoint details. 12
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Usage
 
-### Advanced Configuration
+1. Sign up or log in via Firebase Authentication.
+2. Explore the dashboard to view health records, emergency tools, and personalized recommendations.
+3. Use the interactive map to locate hospitals or pharmacies.
+4. Schedule appointments seamlessly.
+5. Track health metrics like BMI and menstrual cycles.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Contributing
 
-### Deployment
+We welcome contributions of all kinds! Please read our [CONTRIBUTING.md](CONTRIBUTING.md) to get started. Whether it's improving documentation, adding new features, or fixing bugs, your help is appreciated. 18
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Future Roadmap
 
-### `npm run build` fails to minify
+* **AI-driven Analytics**: Personalized health insights based on user data. 
+* **Multilingual Support**: Expanding global reach with multiple languages. 
+* **Mobile Application**: Dedicated iOS and Android apps for on-the-go access. 
+* **Healthcare Provider Portal**: Secure collaboration between patients and providers.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-=======
-# CureWave
->>>>>>> 847c7c4de81ff937b1f81a14e796fa631331a3ce
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
